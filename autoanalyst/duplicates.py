@@ -1,6 +1,6 @@
 import pandas as pd
-from load import load_raw
-from missing import standardize_missing, handle_missing
+from .load import load_raw
+from .missing import standardize_missing, handle_missing
 
 # Column that identifies a patient (set to None if your data has no such column)
 PATIENT_COL = "patient_nbr"

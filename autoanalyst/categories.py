@@ -1,11 +1,11 @@
 import pandas as pd
-from load import load_raw
-from missing import standardize_missing, handle_missing
-from duplicates import (drop_exact_duplicates, keep_first_encounter,
+from .load import load_raw
+from .missing import standardize_missing, handle_missing
+from .duplicates import (drop_exact_duplicates, keep_first_encounter,
                         drop_id_columns, drop_constant_columns)
-from fix_types import (convert_ranges, convert_numeric_text,
+from .fix_types import (convert_ranges, convert_numeric_text,
                        convert_code_columns, convert_text_to_category)
-from outliers import drop_impossible_values, cap_extreme_values
+from .outliers import drop_impossible_values, cap_extreme_values
 
 # Several different codes that all mean "unknown" (see IDS_mapping.csv)
 UNKNOWN_CODES = {

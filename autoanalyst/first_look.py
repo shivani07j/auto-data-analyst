@@ -1,5 +1,5 @@
 import pandas as pd
-from load import load_raw
+from .load import load_raw
 
 pd.set_option("display.max_rows", None)
 pd.set_option("display.width", 200)
