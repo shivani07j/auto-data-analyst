@@ -23,7 +23,7 @@ MAX_LEVELS = 10
 
 # Labels we created on purpose, never merge these as "rare"
 PROTECTED = {"Unknown", "Not tested"}
-
+KEEP_RARE_COLS = ["discharge_disposition_id"]
 
 def category_columns(df):
     return df.select_dtypes(include="category").columns.tolist()
@@ -111,7 +111,7 @@ def merge_rare_categories(df, share=RARE_SHARE, max_levels=MAX_LEVELS):
     df = df.copy()
     log = []
     for col in category_columns(df):
-        if df[col].nunique() <= max_levels:
+        if col in KEEP_RARE_COLS or df[col].nunique() <= max_levels:
             continue
         s = df[col].astype(str)
         freq = s.value_counts(normalize=True)
